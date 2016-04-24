@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Дальномір</string>
+    <string name="action_settings">Settings</string>
+    <string name="angle_str">Кут до землі</string>
+    <string name="dialog_title">Висота до рiвня очей</string>
+    <string name="togle1_str">Базисна вiдстань 20м</string>
+    <string name="togle2_str">Базисна вiдстань 30м</string>
+    <string name="line1">НВПП \"КАРО\" м.Харкiв </string>
+    <string name="line2">сайт \"Все для лiсiвника\"</string>
+    <string name="line3"> <u>lesovod.com.ua</u></string>
+    <string name="line4">тел.<u>0572-94-96-42</u></string>
+    <string name="line5"><u>050-400-83-41</u></string>
+    <string name="line6"><u>097-529-67-78</u></string>
+</resources>

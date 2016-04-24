@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.example.grass.metering2.ResizableImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView"
+        android:src="@drawable/splash"
+        android:scaleType="centerCrop"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <com.example.grass.metering2.VerticalTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Дальномір"
+        android:id="@+id/textView6"
+        android:textSize="70dp"
+        android:textColor="#ffffff"
+        android:gravity="top|bottom"
+        android:layout_marginRight="87dp"
+        android:layout_marginEnd="87dp"
+        android:textStyle="bold"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <com.example.grass.metering2.VerticalTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/line1"
+        android:id="@+id/texView8"
+        android:textSize="45dp"
+        android:textColor="#ffffff"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/textView6"
+        android:layout_toStartOf="@+id/textView6"
+        android:textStyle="bold" />
+
+
+    <com.example.grass.metering2.VerticalTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/line2"
+        android:id="@+id/texView9"
+        android:textSize="45dp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/texView8"
+        android:layout_toStartOf="@+id/texView8" />
+
+    <com.example.grass.metering2.VerticalTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/line3"
+        android:id="@+id/texView10"
+        android:textSize="45dp"
+        android:textColor="#ffffff"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/texView9"
+        android:layout_toStartOf="@+id/texView9"
+        android:textStyle="bold" />
+
+        <com.example.grass.metering2.VerticalTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/line4"
+            android:id="@+id/texView11"
+            android:textSize="45dp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/texView10"
+            android:layout_toStartOf="@+id/texView10" />
+
+       <com.example.grass.metering2.VerticalTextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textAppearance="?android:attr/textAppearanceLarge"
+           android:text="@string/line5"
+           android:id="@+id/texView12"
+           android:textSize="45dp"
+           android:textColor="#ffffff"
+           android:layout_centerVertical="true"
+           android:layout_toLeftOf="@+id/texView11"
+           android:layout_toStartOf="@+id/texView11"
+           android:textStyle="bold"
+           android:textIsSelectable="false" />
+
+
+       <com.example.grass.metering2.VerticalTextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textAppearance="?android:attr/textAppearanceLarge"
+           android:text="@string/line6"
+           android:id="@+id/texView13"
+           android:textSize="45dp"
+           android:textColor="#ffffff"
+           android:layout_alignTop="@+id/texView12"
+           android:layout_toLeftOf="@+id/texView12"
+           android:layout_toStartOf="@+id/texView12"
+           android:textStyle="bold" />
+
+</RelativeLayout>
