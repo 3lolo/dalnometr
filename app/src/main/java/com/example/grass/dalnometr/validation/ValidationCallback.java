@@ -1,4 +1,4 @@
-package com.example.grass.metering.validation;
+package com.example.grass.dalnometr.validation;
 
 /**
  * Created by Yaroslav on 08.03.2016.

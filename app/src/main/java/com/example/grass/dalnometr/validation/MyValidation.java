@@ -1,4 +1,4 @@
-package com.example.grass.metering.validation;
+package com.example.grass.dalnometr.validation;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -8,6 +8,7 @@ import com.dropbox.core.DbxException;
 import com.dropbox.core.DbxRequestConfig;
 import com.dropbox.core.v1.DbxClientV1;
 import com.dropbox.core.v1.DbxEntry;
+import com.example.grass.dalnometr.Constants;
 
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
@@ -16,8 +17,6 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Locale;
 
-import static com.example.grass.metering.Constants.DRIVE_URL;
-import static com.example.grass.metering.Constants.TAG;
 
 /**
  * Created by Yaroslav on 08.03.2016.
@@ -30,17 +29,17 @@ public class MyValidation {
 
         preferences = context.getSharedPreferences("my_settings" , Context.MODE_PRIVATE);
         DbxRequestConfig config = new DbxRequestConfig("taxation", Locale.getDefault().toString());
-        DbxClientV1 clientV2 = new DbxClientV1(config,DRIVE_URL);
-        Log.d(TAG, "isValid: ");
+        DbxClientV1 clientV2 = new DbxClientV1(config, Constants.DRIVE_URL);
+        Log.d(Constants.TAG, "isValid: ");
         //String sr =
         FileOutputStream outStream = null;
         StringBuilder text = null;
         try {
-            Log.d(TAG, "isValid: " + clientV2.getAccountInfo().email);
+            Log.d(Constants.TAG, "isValid: " + clientV2.getAccountInfo().email);
 
             outStream = new FileOutputStream(context.getFilesDir() + "/licenBasHiMeter.txt");
             DbxEntry.File downloadFile = clientV2.getFile("/licenBasHiMeter.txt",null, outStream);
-            Log.d(TAG, "isValid: file " + downloadFile.asFile().toString());
+            Log.d(Constants.TAG, "isValid: file " + downloadFile.asFile().toString());
             outStream.close();
 
             text = new StringBuilder();
@@ -53,9 +52,9 @@ public class MyValidation {
             }
             br.close();
 
-            Log.d(TAG, "isValid: chek " + text.toString().contains(imei));
+            Log.d(Constants.TAG, "isValid: chek " + text.toString().contains(imei));
             if (text.toString().contains(imei)){
-                Log.d(TAG, "isValid: works");
+                Log.d(Constants.TAG, "isValid: works");
                 Calendar dayD = Calendar.getInstance();
                 dayD.add(Calendar.DATE,365);
                 SharedPreferences.Editor editor = preferences.edit();
@@ -67,10 +66,8 @@ public class MyValidation {
         }
         catch (DbxException | IOException e) {
             e.printStackTrace();
-            Log.e(TAG, "isValid: "+ e.toString());
+            Log.e(Constants.TAG, "isValid: "+ e.toString());
         }
         return false;
     }
-
-
 }

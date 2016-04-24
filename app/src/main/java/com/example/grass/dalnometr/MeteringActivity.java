@@ -1,4 +1,4 @@
-package com.example.grass.metering;
+package com.example.grass.dalnometr;
 
 
 import android.app.Activity;
@@ -22,14 +22,12 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import com.example.grass.metering.validation.MyValidator;
-import com.example.grass.metering.validation.ValidationCallback;
+import com.example.grass.dalnometr.validation.MyValidator;
+import com.example.grass.dalnometr.validation.ValidationCallback;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
-
-import static com.example.grass.metering.Constants.*;
 
 
 public class MeteringActivity extends Activity implements View.OnClickListener, SensorEventListener,
@@ -98,16 +96,16 @@ public class MeteringActivity extends Activity implements View.OnClickListener, 
 
         long timeX = preferences.getLong("dayD", 0) - Calendar.getInstance().getTimeInMillis();
 
-        Log.d(TAG, "checkDateDiff: " + " timeX" + timeX / (24 * 60 * 60 * 1000));
+        Log.d(Constants.TAG, "checkDateDiff: " + " timeX" + timeX / (24 * 60 * 60 * 1000));
         if (timeX > 0) {
-            Log.d(TAG, "checkDate() returned: " + true);
+            Log.d(Constants.TAG, "checkDate() returned: " + true);
             return true;
 
         } else {
-            Log.d(TAG, "checkDate() returned: " + false);
+            Log.d(Constants.TAG, "checkDate() returned: " + false);
             MyValidator val = new MyValidator(getApplicationContext(), this);
             val.execute();
-            return preferences.getBoolean(VAL, false);
+            return preferences.getBoolean(Constants.VAL, false);
         }
 
     }
