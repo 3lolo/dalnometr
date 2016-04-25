@@ -32,7 +32,7 @@ public class Splash extends Activity {
                         logoTimer = logoTimer +100;
                     };
 
-                    Intent intent = new Intent(context,MeteringActivity.class);
+                    Intent intent = new Intent(context,DalnometerActivity.class);
                     startActivity(intent);
                 }
                 catch (InterruptedException e)

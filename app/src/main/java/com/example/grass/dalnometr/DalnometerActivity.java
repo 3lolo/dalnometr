@@ -30,9 +30,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 
-public class MeteringActivity extends Activity implements View.OnClickListener, SensorEventListener,
+public class DalnometerActivity extends Activity implements View.OnClickListener, SensorEventListener,
         ValidationCallback, SoundPool.OnLoadCompleteListener {
-    MeteringDialog dialog;
+    DalnometerDialog dialog;
     SensorManager sensorManager;
 
     private float[] accelerometerValues;
@@ -69,7 +69,7 @@ public class MeteringActivity extends Activity implements View.OnClickListener, 
 
         task_data = new double[]{0, 0};
 
-        dialog = new MeteringDialog();
+        dialog = new DalnometerDialog();
         dialog.setMeteringActivity(this);
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE); // Получаем менеджер сенсоров

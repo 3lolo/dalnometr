@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    tools:context=".metering.MeteringActivity"
+    tools:context=".DalnometerActivity"
     android:onClick="onClick">
 
     <TextView
@@ -110,7 +110,6 @@
         android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/button30"
         android:layout_centerHorizontal="true"
         android:weightSum="1"
         android:orientation="vertical"

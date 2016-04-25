@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.example.grass.metering2.ResizableImageView
+    <com.example.grass.dalnometer.ResizableImageView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/imageView"
@@ -13,7 +13,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <com.example.grass.metering2.VerticalTextView
+    <com.example.grass.dalnometer.VerticalTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Дальномір"
@@ -28,7 +28,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <com.example.grass.metering2.VerticalTextView
+    <com.example.grass.dalnometer.VerticalTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -42,7 +42,7 @@
         android:textStyle="bold" />
 
 
-    <com.example.grass.metering2.VerticalTextView
+    <com.example.grass.dalnometer.VerticalTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -55,7 +55,7 @@
         android:layout_toLeftOf="@+id/texView8"
         android:layout_toStartOf="@+id/texView8" />
 
-    <com.example.grass.metering2.VerticalTextView
+    <com.example.grass.dalnometer.VerticalTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -68,7 +68,7 @@
         android:layout_toStartOf="@+id/texView9"
         android:textStyle="bold" />
 
-        <com.example.grass.metering2.VerticalTextView
+        <com.example.grass.dalnometer.VerticalTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -81,7 +81,7 @@
             android:layout_toLeftOf="@+id/texView10"
             android:layout_toStartOf="@+id/texView10" />
 
-       <com.example.grass.metering2.VerticalTextView
+       <com.example.grass.dalnometer.VerticalTextView
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:textAppearance="?android:attr/textAppearanceLarge"
@@ -96,7 +96,7 @@
            android:textIsSelectable="false" />
 
 
-       <com.example.grass.metering2.VerticalTextView
+       <com.example.grass.dalnometer.VerticalTextView
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:textAppearance="?android:attr/textAppearanceLarge"

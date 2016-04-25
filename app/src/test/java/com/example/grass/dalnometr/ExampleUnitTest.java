@@ -1,4 +1,4 @@
-package com.example.grass.metering;
+package com.example.grass.dalnometr;
 
 import org.junit.Test;
 

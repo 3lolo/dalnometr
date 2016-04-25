@@ -20,19 +20,19 @@ import java.util.Map;
 /**
  * Created by Grass on 10.03.2016.
  */
-public class MeteringDialog extends DialogFragment implements View.OnClickListener {
+public class DalnometerDialog extends DialogFragment implements View.OnClickListener {
 
     public static final String APP_PREFERENCES = "meteringData";
     private SharedPreferences mSettings;
     private EditText editText;
     private View view;
-    MeteringActivity activity;
+    DalnometerActivity activity;
     private AlertDialog dialog;
 
     private double eyeHeight;
     HashMap<String,Double> map;
 
-    public void setMeteringActivity(MeteringActivity activity){
+    public void setMeteringActivity(DalnometerActivity activity){
         this.activity = activity;
     }
 
