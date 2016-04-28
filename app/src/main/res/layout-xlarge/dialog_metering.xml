@@ -27,5 +27,13 @@
         android:visibility="visible"
         android:layout_below="@+id/textView5"
         android:layout_centerHorizontal="true" />
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Розрахувати"
+        android:id="@+id/button"
+        android:layout_below="@+id/editHeight"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>
