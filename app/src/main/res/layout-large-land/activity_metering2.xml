@@ -12,7 +12,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Висота"
         android:id="@+id/textView10"
-        android:textSize="45dp"
+        android:textSize="50dp"
         android:layout_above="@+id/textView2"
         android:layout_alignLeft="@+id/heightValue"
         android:layout_alignStart="@+id/heightValue" />
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/heightValue"
-        android:textSize="90dp"
+        android:textSize="140dp"
         android:text="00.00"
         android:layout_below="@+id/textView10"
         android:layout_alignParentRight="true"
@@ -34,9 +34,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Кут "
+        android:text="@string/angle_str"
         android:id="@+id/textView"
-        android:textSize="45dp"
+        android:textSize="50dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -47,7 +47,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="00.00"
         android:id="@+id/angleValue"
-        android:textSize="90dp"
+        android:textSize="140dp"
         android:layout_below="@+id/textView"
         android:layout_alignLeft="@+id/layer"
         android:layout_alignStart="@+id/layer" />
@@ -69,7 +69,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="m"
         android:id="@+id/textView3"
-        android:textSize="35dp"
+        android:textSize="50dp"
         android:layout_alignTop="@+id/heightValue"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -82,13 +82,24 @@
         android:id="@+id/layer">
 
         <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Калібрування"
+            android:id="@+id/buttonCalibration"
+            android:layout_above="@+id/buttonUpdate"
+            android:layout_centerHorizontal="true"
+            android:textSize="50dp"
+            style="@style/AlertDialog.AppCompat"
+            android:onClick="onClick" />
+
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Наступне вимірювання"
             android:id="@+id/buttonUpdate"
             android:layout_above="@+id/buttonChange"
             android:layout_centerHorizontal="true"
-            android:textSize="35dp"
+            android:textSize="50dp"
             style="@style/AlertDialog.AppCompat"
             android:nestedScrollingEnabled="false"
             android:onClick="onClick" />
@@ -99,12 +110,41 @@
             android:layout_height="wrap_content"
             android:text="Змiнити даннi"
             android:id="@+id/buttonChange"
-            android:textSize="35dp"
+            android:textSize="50dp"
             android:onClick="onClick"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal|bottom" />
 
     </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:weightSum="1"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/editOwnValue"
+            android:layout_width="302dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/editHeight"
+            android:layout_alignLeft="@+id/button20"
+            android:layout_alignStart="@+id/button20"
+            android:layout_gravity="center_horizontal"
+            android:textSize="30dp"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/buttSaveOwn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Розрахувати"
+            android:layout_gravity="center_horizontal"
+            android:textSize="30dp"
+            style="@style/AlertDialog.AppCompat" />
+    </LinearLayout>
 
 </RelativeLayout>

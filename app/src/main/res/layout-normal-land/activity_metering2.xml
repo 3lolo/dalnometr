@@ -82,6 +82,16 @@
         android:id="@+id/layer">
 
         <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Калібрування"
+            android:id="@+id/buttonCalibration"
+            android:layout_above="@+id/buttonUpdate"
+            android:layout_centerHorizontal="true"
+            android:textSize="35dp"
+            style="@style/AlertDialog.AppCompat"
+            android:onClick="onClick" />
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Наступне вимірювання"

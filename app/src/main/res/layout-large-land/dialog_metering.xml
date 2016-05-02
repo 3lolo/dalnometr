@@ -34,7 +34,8 @@
         android:text="Розрахувати"
         android:id="@+id/button"
         android:layout_below="@+id/editHeight"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/textView5"
+        android:layout_alignStart="@+id/textView5" />
 
 
 </RelativeLayout>

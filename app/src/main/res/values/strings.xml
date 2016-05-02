@@ -2,7 +2,7 @@
     <string name="app_name">Дальномір</string>
     <string name="action_settings">Settings</string>
     <string name="angle_str">Кут до землі</string>
-    <string name="dialog_title">Висота до рiвня очей</string>
+    <string name="dialog_title">Відстань до рiвня очей</string>
     <string name="togle1_str">Базисна вiдстань 20м</string>
     <string name="togle2_str">Базисна вiдстань 30м</string>
     <string name="line1">НВПП \"КАРО\" м.Харкiв </string>

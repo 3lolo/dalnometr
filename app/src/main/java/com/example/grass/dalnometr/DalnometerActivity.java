@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.example.grass.dalnometr.calibration.CalibrationActivity;
 import com.example.grass.dalnometr.validation.MyValidator;
 import com.example.grass.dalnometr.validation.ValidationCallback;
 
@@ -36,7 +37,6 @@ public class DalnometerActivity extends Activity implements View.OnClickListener
     SensorManager sensorManager;
 
     private float[] accelerometerValues;
-    private float[] magneticFieldValues;
     private ArrayList<Double> angles;
     private double[] task_data;
     TextView heightView;
@@ -44,9 +44,10 @@ public class DalnometerActivity extends Activity implements View.OnClickListener
 
     MeteringTask task;
 
+    SharedPreferences sharedPreferences ;
+    SharedPreferences spAccurate;
 
     Sensor accelerometer;
-    Sensor magneticField;
     SoundPool sp;
     int sound;
 
@@ -54,7 +55,8 @@ public class DalnometerActivity extends Activity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        sharedPreferences = getSharedPreferences("my_settings", MODE_PRIVATE);
+        spAccurate = getSharedPreferences("ACCURATE", MODE_PRIVATE);
 
         setContentView(R.layout.activity_metering2);
 
@@ -74,25 +76,22 @@ public class DalnometerActivity extends Activity implements View.OnClickListener
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE); // Получаем менеджер сенсоров
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        magneticField = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+        //magneticField = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
 
         sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_UI);
-        sensorManager.registerListener(this, magneticField, SensorManager.SENSOR_DELAY_UI);
+        //sensorManager.registerListener(this, magneticField, SensorManager.SENSOR_DELAY_UI);
 
         heightView = (TextView) findViewById(R.id.heightValue);
         angleView = (TextView) findViewById(R.id.angleValue);
         angles = new ArrayList<>();
-
         dialog.show(getFragmentManager(), "Налаштування");
-
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
 
     }
 
     boolean checkDate() {
 
-        SharedPreferences preferences = getSharedPreferences("my_settings", MODE_PRIVATE);
+        SharedPreferences preferences =  getSharedPreferences("my_settings", MODE_PRIVATE);
 
         long timeX = preferences.getLong("dayD", 0) - Calendar.getInstance().getTimeInMillis();
 
@@ -113,7 +112,6 @@ public class DalnometerActivity extends Activity implements View.OnClickListener
     @Override
     protected void onResume() {
         super.onResume();
-
     }
 
     @Override
@@ -124,16 +122,28 @@ public class DalnometerActivity extends Activity implements View.OnClickListener
                 stopTask();
                 break;
             case R.id.buttonChange:
+                stopTask();
                 dialog.show(getFragmentManager(), "Налаштування");
                 break;
             case R.id.buttonUpdate:
                 try {
                     stopTask();
                     double[] data = dialog.getParams();
+                    stopTask();
                     startTask(data[0]);
                 }catch (Exception e){
 
                 }
+                break;
+            case R.id.buttonCalibration:
+                SharedPreferences.Editor editor = spAccurate.edit();
+                editor.clear();
+                editor.commit();
+                stopTask();
+
+
+                Intent intent = new Intent(this, CalibrationActivity.class);
+                startActivity(intent);
                 break;
         }
     }
@@ -142,10 +152,6 @@ public class DalnometerActivity extends Activity implements View.OnClickListener
     public void onSensorChanged(SensorEvent event) {
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER)
             accelerometerValues = event.values;
-
-        if (event.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD)
-            magneticFieldValues = event.values;
-
     }
 
     @Override
@@ -155,17 +161,7 @@ public class DalnometerActivity extends Activity implements View.OnClickListener
 
     public float[] getOrientation() {
         float[] values = new float[3];
-/*
-        if (magneticFieldValues != null) {
-            float[] R = new float[9];
-            SensorManager.getRotationMatrix(R, null, accelerometerValues, magneticFieldValues);
-            SensorManager.getOrientation(R, values);
 
-            values[0] = (float) Math.toDegrees(values[0]);
-            values[1] = (float) Math.toDegrees(values[1]);
-            values[2] = (float) Math.toDegrees(values[2]);
-            Log.d("orientation", "orientation 1 " + values[0] + " " + values[1] + " " + values[2]);
-        } else {*/
             double ax = accelerometerValues[0];
             double ay = accelerometerValues[1];
             double az = accelerometerValues[2];
@@ -178,7 +174,7 @@ public class DalnometerActivity extends Activity implements View.OnClickListener
             values[1] = (float) Math.toDegrees(y);
             values[2] = (float) Math.toDegrees(z) - 90;
             Log.d("orientation", "orientation 2 " + values[0] + " " + values[1] + " " + values[2]);
-     //   }
+
         return values;
     }
 
@@ -265,8 +261,12 @@ public class DalnometerActivity extends Activity implements View.OnClickListener
         @Override
         protected void onPostExecute(double[] doubles) {
             super.onPostExecute(doubles);
+            double accurate  = 0;
+            if((spAccurate.contains("accurate"))==true) {
+                accurate = Double.parseDouble(spAccurate.getString("accurate", "0"));
+            }
 
-            heightView.setText("" + roundNumber(doubles[1], 2));
+            heightView.setText("" + roundNumber(doubles[1]+accurate, 1));
             angleView.setText("" + doubles[0]);
 
             sp.play(sound, 1, 1, 0, 0, 1);
