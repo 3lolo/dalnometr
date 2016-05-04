@@ -5,14 +5,20 @@
     android:layout_height="match_parent"
     tools:context=".DalnometerActivity"
     android:onClick="onClick">
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/imageView2"
+        android:src="@mipmap/arrow"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Відстань"
+        android:text="Висота"
         android:id="@+id/textView10"
-        android:textSize="35dp"
+        android:textSize="30dp"
         android:layout_above="@+id/textView2"
         android:layout_alignLeft="@+id/heightValue"
         android:layout_alignStart="@+id/heightValue" />
@@ -22,7 +28,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/heightValue"
-        android:textSize="90dp"
+        android:textSize="60dp"
         android:text="00.00"
         android:layout_below="@+id/textView10"
         android:layout_alignParentRight="true"
@@ -34,10 +40,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Кут до землі"
+        android:text="@string/angle_str"
         android:id="@+id/textView"
-        android:textSize="35dp"
-        android:layout_alignParentTop="true"
+        android:textSize="30dp"
+        android:layout_below="@+id/imageView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -47,7 +53,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="00.00"
         android:id="@+id/angleValue"
-        android:textSize="90dp"
+        android:textSize="60dp"
         android:layout_below="@+id/textView"
         android:layout_alignLeft="@+id/layer"
         android:layout_alignStart="@+id/layer" />
@@ -58,7 +64,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="o"
         android:id="@+id/textView2"
-        android:textSize="35dp"
+        android:textSize="30dp"
         android:layout_alignTop="@+id/angleValue"
         android:layout_toRightOf="@+id/angleValue"
         android:layout_toEndOf="@+id/angleValue" />
@@ -69,7 +75,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="m"
         android:id="@+id/textView3"
-        android:textSize="35dp"
+        android:textSize="30dp"
         android:layout_alignTop="@+id/heightValue"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -91,6 +97,7 @@
             android:textSize="35dp"
             style="@style/AlertDialog.AppCompat"
             android:onClick="onClick" />
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -116,5 +123,33 @@
             android:layout_gravity="center_horizontal|bottom" />
 
     </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:weightSum="1"
+        android:orientation="vertical"
+        android:visibility="gone">
 
+        <EditText
+            android:id="@+id/editOwnValue"
+            android:layout_width="302dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/editHeight"
+            android:layout_alignLeft="@+id/button20"
+            android:layout_alignStart="@+id/button20"
+            android:layout_gravity="center_horizontal"
+            android:textSize="30dp"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/buttSaveOwn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Розрахувати"
+            android:layout_gravity="center_horizontal"
+            android:textSize="30dp"
+            style="@style/AlertDialog.AppCompat" />
+    </LinearLayout>
 </RelativeLayout>
