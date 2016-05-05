@@ -264,6 +264,7 @@ public class DalnometerActivity extends Activity implements View.OnClickListener
             double accurate  = 0;
             if((spAccurate.contains("accurate"))==true) {
                 accurate = Double.parseDouble(spAccurate.getString("accurate", "0"));
+                Log.d("accurate",""+accurate);
             }
 
             heightView.setText("" + roundNumber(doubles[1]+accurate, 1));

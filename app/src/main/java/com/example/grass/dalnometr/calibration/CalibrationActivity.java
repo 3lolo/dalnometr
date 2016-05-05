@@ -82,10 +82,11 @@ public class CalibrationActivity extends Activity implements View.OnClickListene
             double accurate = roundNumber(1-(length/eyeLength),2);
 
             adapter.notifyDataSetChanged();
-            if(itemPoistion ==0) {
-                addAccuracy(++colibrCount, angle, eyeLength, eyeHeight, accurate, length);
-                list.add(new Item(eyeHeight,length,angle,eyeLength,accurate));
-            }
+          //  if(itemPoistion ==0) {
+
+            list.add(new Item(eyeHeight,length,angle,eyeLength,accurate));
+            addAccuracy(++colibrCount, angle, eyeLength, eyeHeight, accurate, length);
+           /* }
             else{
                 list.get(itemPoistion-1).setAngle(angle);
                 list.get(itemPoistion-1).setError(accurate);
@@ -95,7 +96,7 @@ public class CalibrationActivity extends Activity implements View.OnClickListene
                 adapter.notifyDataSetChanged();
                 addAccuracy(itemPoistion,angle,eyeLength,eyeHeight,accurate,length);
                 itemPoistion = 0;
-            }
+            }*/
             Log.d("log","angle = "+angle+"length = "+length);
         }
     }
@@ -111,8 +112,8 @@ public class CalibrationActivity extends Activity implements View.OnClickListene
                 colibrCount++;
             editor.putString("colibrCount",""+colibrCount);
             editor.putString("accurate",""+countDisp());
-        editor.apply();
-
+        editor.commit();
+        editor = spAccurate.edit();
     }
     private void importAccuracy(int count){
 
@@ -130,7 +131,7 @@ public class CalibrationActivity extends Activity implements View.OnClickListene
         double sum  = 0;
         double disp = 0;
         for(Item item : list)
-            sum = item.getError()/list.size();
+            sum += item.getError()/list.size();
         for(Item item : list){
             disp+=Math.pow(item.getError() - sum,2)/list.size();
         }
