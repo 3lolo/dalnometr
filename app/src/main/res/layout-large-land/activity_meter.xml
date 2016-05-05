@@ -76,35 +76,14 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <LinearLayout
-        android:id="@+id/layout"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:weightSum="1"
-        android:orientation="vertical"
-        android:visibility="gone">
+        android:onClick="onClick"
+        android:visibility="visible"
+        android:id="@+id/layer">
 
-        <EditText
-            android:id="@+id/editOwnValue"
-            android:layout_width="302dp"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/editHeight"
-            android:layout_alignLeft="@+id/button20"
-            android:layout_alignStart="@+id/button20"
-            android:layout_gravity="center_horizontal"
-            android:textSize="30dp"
-            android:inputType="number" />
-
-        <Button
-            android:id="@+id/buttSaveOwn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Розрахувати"
-            android:layout_gravity="center_horizontal"
-            android:textSize="30dp"
-            style="@style/AlertDialog.AppCompat" />
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </RelativeLayout>
