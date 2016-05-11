@@ -13,17 +13,17 @@
         android:theme="@style/Base.Theme.AppCompat.Light">
         <activity
             android:name=".DalnometerActivity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="reverseLandscape"></activity>
         <activity
             android:name=".calibration.CalibrationActivity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="reverseLandscape"></activity>
         <activity
             android:name=".calibration.DalCalibrActivity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="reverseLandscape"></activity>
 
         <activity
             android:name=".Splash"
-            android:screenOrientation="landscape">
+            android:screenOrientation="reverseLandscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
