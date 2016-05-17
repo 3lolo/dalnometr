@@ -16,8 +16,14 @@ import android.media.SoundPool;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -32,8 +38,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 
-public class DalnometerActivity extends Activity implements View.OnClickListener, SensorEventListener,
-        ValidationCallback, SoundPool.OnLoadCompleteListener {
+public class DalnometerActivity extends AppCompatActivity implements View.OnClickListener, SensorEventListener,
+        ValidationCallback, SoundPool.OnLoadCompleteListener{
     DalnometerDialog dialog;
     SensorManager sensorManager;
 
@@ -60,6 +66,10 @@ public class DalnometerActivity extends Activity implements View.OnClickListener
         spAccurate = getSharedPreferences("ACCURATE", MODE_PRIVATE);
 
         setContentView(R.layout.activity_metering2);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
 
         sp = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
         sp.setOnLoadCompleteListener(this);
@@ -136,16 +146,7 @@ public class DalnometerActivity extends Activity implements View.OnClickListener
 
                 }
                 break;
-            case R.id.buttonCalibration:
-                SharedPreferences.Editor editor = spAccurate.edit();
-                editor.clear();
-                editor.commit();
-                stopTask();
 
-
-                Intent intent = new Intent(this, CalibrationActivity.class);
-                startActivity(intent);
-                break;
         }
     }
 
@@ -287,9 +288,7 @@ public class DalnometerActivity extends Activity implements View.OnClickListener
     }
 
     private void enableButtons(boolean status){
-        Button b = (Button)findViewById(R.id.buttonCalibration);
-        b.setEnabled(status);
-        b =(Button)findViewById(R.id.buttonChange);
+        Button b =(Button)findViewById(R.id.buttonChange);
         b.setEnabled(status);
         b = (Button)findViewById(R.id.buttonUpdate);
         b.setEnabled(status);
@@ -350,5 +349,28 @@ public class DalnometerActivity extends Activity implements View.OnClickListener
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+        if (id == R.id.action_calibration) {
+            SharedPreferences.Editor editor = spAccurate.edit();
+            editor.clear();
+            editor.commit();
+            stopTask();
+
+
+            Intent intent = new Intent(this, CalibrationActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }

@@ -5,13 +5,22 @@
     android:layout_height="match_parent"
     tools:context=".DalnometerActivity"
     android:onClick="onClick">
-    <ImageView
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/imageView2"
-        android:src="@mipmap/arrow2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:layout_width="500dp"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView2"
+            android:src="@mipmap/arrow2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </android.support.v7.widget.Toolbar>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,7 +37,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/heightValue"
-        android:textSize="90dp"
+        android:textSize="70dp"
         android:text="00.00"
         android:layout_below="@+id/textView10"
         android:layout_alignParentRight="true"
@@ -43,7 +52,7 @@
         android:text="Кут до землі"
         android:id="@+id/textView"
         android:textSize="35dp"
-        android:layout_below="@+id/imageView2"
+        android:layout_below="@+id/toolbar"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -53,7 +62,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="00.00"
         android:id="@+id/angleValue"
-        android:textSize="90dp"
+        android:textSize="70dp"
         android:layout_below="@+id/textView" />
 
     <TextView
@@ -62,7 +71,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="o"
         android:id="@+id/textView2"
-        android:textSize="35dp"
+        android:textSize="20dp"
         android:layout_alignTop="@+id/angleValue"
         android:layout_toRightOf="@+id/angleValue"
         android:layout_toEndOf="@+id/angleValue" />
@@ -73,7 +82,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="m"
         android:id="@+id/textView3"
-        android:textSize="35dp"
+        android:textSize="20dp"
         android:layout_alignTop="@+id/heightValue"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -83,7 +92,10 @@
         android:layout_height="match_parent"
         android:onClick="onClick"
         android:visibility="visible"
-        android:id="@+id/layer">
+        android:id="@+id/layer"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
     </RelativeLayout>
 
