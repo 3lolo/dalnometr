@@ -18,10 +18,11 @@
         android:layout_height="wrap_content"
         android:text="Додати вимірювання"
         android:id="@+id/button4"
-        android:textSize="70dp"
+        android:textSize="50sp"
+        android:onClick="onClick"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="onClick" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,5 +33,16 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textSize="70dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Видалити вимірювання"
+        android:id="@+id/button6"
+        android:textSize="50sp"
+        android:onClick="onClick"
+        android:layout_below="@+id/listView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

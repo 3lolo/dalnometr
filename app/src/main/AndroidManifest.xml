@@ -20,6 +20,7 @@
         <activity
             android:name=".calibration.DalCalibrActivity"
             android:screenOrientation="reverseLandscape"></activity>
+        <activity android:name=".HelpActivity"></activity>
 
         <activity
             android:name=".Splash"

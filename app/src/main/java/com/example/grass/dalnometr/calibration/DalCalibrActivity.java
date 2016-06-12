@@ -190,7 +190,7 @@ public class DalCalibrActivity extends Activity implements View.OnClickListener,
                     if (values[1] < 0)
                         task_data = calculateHeight(values[1], height);
                     else task_data = calculateHeight(0, height);
-                    publishProgress("" + roundNumber(task_data[0], 2));
+                    publishProgress(doubleToDegree(task_data[0]));
                 }
             }
             return task_data;
@@ -204,7 +204,7 @@ public class DalCalibrActivity extends Activity implements View.OnClickListener,
         protected void onPostExecute(double[] doubles) {
             super.onPostExecute(doubles);
 
-            heightView.setText("" + roundNumber(doubles[1], 2));
+            heightView.setText(doubleToDegree(doubles[1]));
             angleView.setText("" + doubles[0]);
 
             Intent intent = new Intent();
@@ -218,7 +218,13 @@ public class DalCalibrActivity extends Activity implements View.OnClickListener,
             finish();
         }
     }
-
+    public static String doubleToDegree(double value){
+        int degree = (int) value;
+        double rawMinute = Math.abs((value % 1) * 60);
+        int minute = (int) rawMinute;
+        int second = (int) Math.round((rawMinute % 1) * 60);
+        return String.format("%d° %d′ %d″", degree,minute,second);
+    }
     public void stopTask() {
         task.stopTask();
     }

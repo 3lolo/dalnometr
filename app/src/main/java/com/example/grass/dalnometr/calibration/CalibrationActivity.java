@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+
 import com.example.grass.dalnometr.R;
 import com.example.grass.dalnometr.list.Item;
 import com.example.grass.dalnometr.list.ItemAdapter;
@@ -48,6 +49,8 @@ public class CalibrationActivity extends Activity implements View.OnClickListene
         view.setAdapter(adapter);
         Button but  = (Button)findViewById(R.id.button4);
         but.setOnClickListener(this);
+        Button but2  = (Button)findViewById(R.id.button2);
+        but.setOnClickListener(this);
         view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -65,7 +68,13 @@ public class CalibrationActivity extends Activity implements View.OnClickListene
                 Intent intent = new Intent(this, DalCalibrActivity.class);
                 startActivityForResult(intent,1);
                 break;
-        }
+            case R.id.button2:
+                SharedPreferences.Editor editor = spAccurate.edit();
+                editor.clear();
+                editor.commit();
+                finish();
+                break;
+            }
     }
 
     @Override
@@ -86,17 +95,6 @@ public class CalibrationActivity extends Activity implements View.OnClickListene
 
             list.add(new Item(eyeHeight,length,angle,eyeLength,accurate));
             addAccuracy(++colibrCount, angle, eyeLength, eyeHeight, accurate, length);
-           /* }
-            else{
-                list.get(itemPoistion-1).setAngle(angle);
-                list.get(itemPoistion-1).setError(accurate);
-                list.get(itemPoistion-1).setHeight(eyeHeight);
-                list.get(itemPoistion-1).setMeger(length);
-                list.get(itemPoistion-1).setuMerge(eyeLength);
-                adapter.notifyDataSetChanged();
-                addAccuracy(itemPoistion,angle,eyeLength,eyeHeight,accurate,length);
-                itemPoistion = 0;
-            }*/
             Log.d("log","angle = "+angle+"length = "+length);
         }
     }

@@ -251,7 +251,7 @@ public class DalnometerActivity extends AppCompatActivity implements View.OnClic
                     if (values[1] < 0)
                         task_data = calculateHeight(values[1], height);
                     else task_data = calculateHeight(0, height);
-                    publishProgress("" + roundNumber(task_data[0], 2));
+                    publishProgress(doubleToDegree(task_data[0]));
                 }
             }
             return task_data;
@@ -271,11 +271,19 @@ public class DalnometerActivity extends AppCompatActivity implements View.OnClic
             }
 
             heightView.setText("" + roundNumber(doubles[1]+accurate, 1));
-            angleView.setText("" + doubles[0]);
+            angleView.setText(doubleToDegree(doubles[0]));
 
             sp.play(sound, 1, 1, 0, 0, 1);
             enableButtons(true);
         }
+    }
+
+    public static String doubleToDegree(double value){
+        int degree = (int) value;
+        double rawMinute = Math.abs((value % 1) * 60);
+        int minute = (int) rawMinute;
+        int second = (int) Math.round((rawMinute % 1) * 60);
+        return String.format("%d° %d′ %d″", degree,minute,second);
     }
 
     public void stopTask() {
@@ -365,10 +373,13 @@ public class DalnometerActivity extends AppCompatActivity implements View.OnClic
             editor.commit();
             stopTask();
 
-
             Intent intent = new Intent(this, CalibrationActivity.class);
             startActivity(intent);
             return true;
+        }
+        if(id == R.id.action_help){
+            Intent intent = new Intent(this, HelpActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
