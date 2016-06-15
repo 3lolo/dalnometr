@@ -9,26 +9,20 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/arrow2"
         android:layout_height="70dp">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/imageView2"
-            android:src="@mipmap/arrow2"/>
 
     </android.support.v7.widget.Toolbar>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Висота"
+        android:text="Вiдстань"
         android:id="@+id/textView10"
+        android:layout_marginRight="5dp"
         android:textSize="70dp"
         android:layout_above="@+id/angleValue"
-        android:layout_alignLeft="@+id/heightValue"
-        android:layout_alignStart="@+id/heightValue" />
+        android:layout_alignParentRight="true"/>
 
     <TextView
         android:layout_width="wrap_content"
