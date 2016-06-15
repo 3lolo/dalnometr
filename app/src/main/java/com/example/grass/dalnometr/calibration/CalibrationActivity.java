@@ -51,6 +51,7 @@ public class CalibrationActivity extends Activity implements View.OnClickListene
         but.setOnClickListener(this);
         Button but2  = (Button)findViewById(R.id.button2);
         but.setOnClickListener(this);
+        but2.setOnClickListener(this);
         view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

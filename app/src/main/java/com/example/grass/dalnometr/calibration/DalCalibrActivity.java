@@ -204,8 +204,8 @@ public class DalCalibrActivity extends Activity implements View.OnClickListener,
         protected void onPostExecute(double[] doubles) {
             super.onPostExecute(doubles);
 
-            heightView.setText(doubleToDegree(doubles[1]));
-            angleView.setText("" + doubles[0]);
+            heightView.setText("" +roundNumber(doubles[1], 2));
+            angleView.setText("" + doubleToDegree(doubles[0]));
 
             Intent intent = new Intent();
             intent.putExtra("eyeLength",dialog.eyeLength);

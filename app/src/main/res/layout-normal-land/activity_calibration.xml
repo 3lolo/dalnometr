@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Видалити вимірювання"
-        android:id="@+id/button3"
+        android:id="@+id/button2"
         android:textSize="20sp"
         android:onClick="onClick"
         android:layout_below="@+id/listView"
